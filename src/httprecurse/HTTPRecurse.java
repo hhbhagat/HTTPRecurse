@@ -13,6 +13,7 @@ public class HTTPRecurse {
     //SET THESE PLS
     private static final String startURL = "";
     private static final String outputPath = "";
+    
     private static FileIO io = new FileIO();
     private static ArrayList<String> arrURL = new ArrayList();
     private static final String blacklist = "?C=";
@@ -40,6 +41,13 @@ public class HTTPRecurse {
         init.quit();
         getter.quit();
         io.writeArrayToFile(arrURL, outputPath);
+        System.out.println("Size of everything is: " );
+        try{
+        GetSize.run(arrURL);
+        }
+        catch(Exception e){
+            System.out.println("Failed.");
+        }
     }
 
     private static List<WebElement> recurse(String elem) throws Exception {
